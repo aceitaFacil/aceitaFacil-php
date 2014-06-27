@@ -31,3 +31,15 @@ print_r($payment);
 ## Documentation
 
 * Please see https://aceitaFacil.com/docs for up-to-date documentation.
+
+## Troubleshooting
+
+PHP cURL module can raise an exception about *SSL certificate problem* on some
+platforms (usually on Windows, when using WAMP or XAMPP). It happens because
+such platforms are missing the CA certificates, and thus cURL can't verify the
+authenticity of SSL certificates used in HTTPS connection. This can be easily
+fixed by downloading a file containing the CA certificates and configuring PHP
+cURL module to use that file. The instructions are available at [this Stack
+Overflow question][1].
+
+[1]: https://stackoverflow.com/questions/6400300/php-curl-https-causing-exception-ssl-certificate-problem-verify-that-the-ca-cer
