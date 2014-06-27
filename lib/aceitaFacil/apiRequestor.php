@@ -37,6 +37,10 @@ class aceitaFacil_apiRequestor {
 
     $jsondata = curl_exec($curl);
 
+    if ($jsondata === false) {
+      throw new Exception('Curl error: ' . curl_error($curl));
+    }
+
     return json_decode($jsondata, true);
   }
 }
