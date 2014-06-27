@@ -1,7 +1,7 @@
 <?php
 class aceitaFacilTest extends PHPUnit_Framework_TestCase {
-	static public $apiKey = 'API_KEY_STRING';
-	static public $apiSecret = 'API_SECRET_STRING';
+  static public $apiKey = 'API_KEY_STRING';
+  static public $apiSecret = 'API_SECRET_STRING';
 
   public function testsetApiKey() {
     aceitaFacil::setApiKey(self::$apiKey);
@@ -22,7 +22,7 @@ class aceitaFacilTest extends PHPUnit_Framework_TestCase {
   public function testsetsetApiKeys() {
     aceitaFacil::setApiKeys(self::$apiKey, self::$apiSecret);
 
-		$setedAPI = aceitaFacil::getApiKey();
+    $setedAPI = aceitaFacil::getApiKey();
     $this->assertSame(self::$apiKey, $setedAPI);
 
     $setedAPI = aceitaFacil::getApiSecret();
@@ -31,18 +31,18 @@ class aceitaFacilTest extends PHPUnit_Framework_TestCase {
 
   public function testSetEnv(){
     aceitaFacil::setEnv('sandbox');
-    $this->assertSame('https://sandbox.api.aceitafacil.com/', aceitaFacil::$apiBase); 
+    $this->assertSame('https://sandbox.api.aceitafacil.com/', aceitaFacil::$apiBase);
 
     aceitaFacil::setEnv('production');
-    $this->assertSame('https://api.aceitafacil.com/', aceitaFacil::$apiBase); 
-  
+    $this->assertSame('https://api.aceitafacil.com/', aceitaFacil::$apiBase);
+
     aceitaFacil::setEnv('sandbox');
-    $this->assertSame('https://sandbox.api.aceitafacil.com/', aceitaFacil::$apiBase); 
+    $this->assertSame('https://sandbox.api.aceitafacil.com/', aceitaFacil::$apiBase);
 
     aceitaFacil::setEnv('Production');
     $this->assertSame('https://api.aceitafacil.com/', aceitaFacil::$apiBase);
 
     aceitaFacil::setEnv('PRODUCTION');
-    $this->assertSame('https://api.aceitafacil.com/', aceitaFacil::$apiBase); 
+    $this->assertSame('https://api.aceitafacil.com/', aceitaFacil::$apiBase);
   }
 }

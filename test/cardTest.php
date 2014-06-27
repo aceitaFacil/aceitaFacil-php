@@ -1,11 +1,11 @@
 <?php
 class aceitaFacil_cardTest extends PHPUnit_Framework_TestCase {
 
-	protected function setUp() {
+  protected function setUp() {
     aceitaFacil::setEnv('sandbox');
-		aceitaFacil::setApiKeys('438cf8f06e6fef8075592b25a8552f967d5aab76', 
-		                              '9b8587b0b0e54312e00c5715ab78012d54b1549c');
-	}
+    aceitaFacil::setApiKeys('438cf8f06e6fef8075592b25a8552f967d5aab76',
+                            '9b8587b0b0e54312e00c5715ab78012d54b1549c');
+  }
 
   public function testCreateToken() {
     $customer = array('id' => 'CUSTOMER_ID', 'name' => 'CUSTOMER NAME', 'email' => 'claudio.meinberg@gmail.com');

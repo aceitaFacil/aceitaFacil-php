@@ -7,7 +7,7 @@
     timeoutForSmallTests="5"
     timeoutForMediumTests="10"
     timeoutForLargeTests="60"
-    bootstrap="./bootstrap.php"    
+    bootstrap="./bootstrap.php"
 >
 
     <testsuite name="aceitaFacil PHP Tests">
