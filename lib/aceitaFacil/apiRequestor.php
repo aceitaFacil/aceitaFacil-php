@@ -10,6 +10,8 @@ class aceitaFacil_apiRequestor {
   static public function callAPI($method, $endpoint, $data = false) {
     $curl = curl_init();
 
+    $endpoint = $endpoint . '.json';
+
     switch ($method) {
       case "POST":
         curl_setopt($curl, CURLOPT_POST, 1);
@@ -32,7 +34,7 @@ class aceitaFacil_apiRequestor {
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     curl_setopt($curl, CURLOPT_USERPWD, $credentials);
 
-    curl_setopt($curl, CURLOPT_URL, aceitaFacil::$apiBase . $endpoint . '.json');
+    curl_setopt($curl, CURLOPT_URL, aceitaFacil::$apiBase . $endpoint);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
     $jsondata = curl_exec($curl);
