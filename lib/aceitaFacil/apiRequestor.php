@@ -12,21 +12,15 @@ class aceitaFacil_apiRequestor {
 
     $endpoint = $endpoint . '.json';
 
-    switch ($method) {
-      case "POST":
-        curl_setopt($curl, CURLOPT_POST, 1);
-
-        $jsondata = json_encode($data);
-
-        if ($jsondata)
-          curl_setopt($curl, CURLOPT_POSTFIELDS, $jsondata);
-        break;
-      // case "PUT":
-      //   curl_setopt($curl, CURLOPT_PUT, 1);
-      //   break;
-      default:
+    if ($method === 'GET') {
         if ($data)
           $endpoint = sprintf("%s?%s", $endpoint, http_build_query($data));
+    } else {
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+
+        $jsondata = json_encode($data);
+        if ($jsondata)
+          curl_setopt($curl, CURLOPT_POSTFIELDS, $jsondata);
     }
 
     $credentials = aceitaFacil::getApiKey() . ":" . aceitaFacil::getApiSecret();
@@ -35,7 +29,8 @@ class aceitaFacil_apiRequestor {
     curl_setopt($curl, CURLOPT_USERPWD, $credentials);
 
     curl_setopt($curl, CURLOPT_URL, aceitaFacil::$apiBase . $endpoint);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
     $jsondata = curl_exec($curl);
 
