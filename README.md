@@ -19,6 +19,7 @@ require_once("/path/to/aceitaFacil-php/lib/aceitaFacil.php");
 Simple usage looks like:
 
 ```php
+aceitaFacil::setEnv('sandbox');  // or 'production'
 aceitaFacil::setApiKeys('438cf8f06e6fef8075592b25a8552f967d5aab76',
                         '9b8587b0b0e54312e00c5715ab78012d54b1549c');
 
